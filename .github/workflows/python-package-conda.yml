@@ -1,0 +1,30 @@
+name: Visit URL
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # 每两小时运行一次
+
+jobs:
+  visit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Visit URL
+        run: |
+          python -c "
+import requests
+response = requests.get('https://example.com')
+print(f'Status Code: {response.status_code}')
+print(f'Content: {response.text[:200]}')  # Print first 200 characters
+          "
