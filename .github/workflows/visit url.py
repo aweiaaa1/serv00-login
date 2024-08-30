@@ -1,9 +1,8 @@
 import requests
 
 urls = [
-    "https://example.com",
-    "https://another-example.com",
-    "https://yet-another-example.com"
+    "https://yingshi1.aweiawym.us.kg/api.php/timming/index.html?enforce=1&name=dd",
+    "https://yingshi1.aweiawym.us.kg/api.php/timming/index.html?enforce=1&name=cc",
 ]
 
 for url in urls:
