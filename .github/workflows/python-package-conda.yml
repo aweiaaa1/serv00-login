@@ -1,4 +1,4 @@
-name: Visit URL
+name: Visit Multiple URLs
 
 on:
   schedule:
@@ -17,14 +17,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install requests
+      - name: Install dependencies
         run: pip install requests
 
-      - name: Visit URL
-        run: |
-          python -c "
-import requests
-response = requests.get('https://example.com')
-print(f'Status Code: {response.status_code}')
-print(f'Content: {response.text[:200]}')  # Print first 200 characters
-          "
+      - name: Run Python script to visit URLs
+        run: python visit_urls.py
